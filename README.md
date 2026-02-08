@@ -163,8 +163,6 @@ erDiagram
 - 🔑 **Integridad referencial**: Foreign keys con cascada
 - 📧 **Email único**: Constraint en tabla `users`
 
-Ver [documentación completa de la base de datos](docs/database-diagram.md)
-
 ## �🔑 Características Principales
 
 ### Backend API
@@ -271,7 +269,6 @@ VITE_API_BASE_URL=http://localhost:8000/api
 Este proyecto fue desarrollado con apoyo de herramientas de Inteligencia Artificial (GitHub Copilot) según lo permitido en la prueba técnica:
 
 ✅ **Fragmentos adaptados:**
-- Configuración inicial de JWT Auth
 - Estructura base de componentes React
 - Configuraciones de TypeScript y Vite
 
