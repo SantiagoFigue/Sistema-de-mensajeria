@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\ThreadController;
+use App\Http\Controllers\Api\MessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +28,12 @@ Route::prefix('auth')->group(function () {
 
 // Protected routes
 Route::middleware('auth:api')->group(function () {
-    // Thread routes will go here
-    // Message routes will go here
+    // Thread routes
+    Route::get('threads', [ThreadController::class, 'index']);
+    Route::post('threads', [ThreadController::class, 'store']);
+    Route::get('threads/{id}', [ThreadController::class, 'show']);
+    Route::delete('threads/{id}', [ThreadController::class, 'destroy']);
+    
+    // Message routes
+    Route::post('threads/{threadId}/messages', [MessageController::class, 'store']);
 });
