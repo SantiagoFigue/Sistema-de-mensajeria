@@ -22,6 +22,7 @@ class User extends Authenticatable implements JWTSubject
         'name',
         'email',
         'password',
+        'role',
     ];
 
     /**
@@ -60,7 +61,19 @@ class User extends Authenticatable implements JWTSubject
      */
     public function getJWTCustomClaims()
     {
-        return [];
+        return [
+            'role' => $this->role
+        ];
+    }
+
+    /**
+     * Verificar si el usuario es administrador
+     *
+     * @return bool
+     */
+    public function isAdmin()
+    {
+        return $this->role === 'admin';
     }
 
     /**

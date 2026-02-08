@@ -12,6 +12,7 @@ class MessageController extends Controller
 {
     /**
      * Almacenar un nuevo mensaje en un thread.
+     * Admin puede enviar mensaje en cualquier thread, user solo donde participa.
      */
     public function store(Request $request, $threadId)
     {
@@ -28,10 +29,15 @@ class MessageController extends Controller
 
         $user = auth('api')->user();
 
-        // Verificar que el usuario es participante del thread
-        $thread = Thread::whereHas('participants', function($query) use ($user) {
-            $query->where('user_id', $user->id);
-        })->find($threadId);
+        // Si es admin, puede enviar mensaje en cualquier thread
+        if ($user->isAdmin()) {
+            $thread = Thread::find($threadId);
+        } else {
+            // Si es user normal, verificar que es participante del thread
+            $thread = Thread::whereHas('participants', function($query) use ($user) {
+                $query->where('user_id', $user->id);
+            })->find($threadId);
+        }
 
         if (!$thread) {
             return response()->json([
