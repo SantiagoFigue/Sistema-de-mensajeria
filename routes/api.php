@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\ThreadController;
 use App\Http\Controllers\Api\MessageController;
+use App\Http\Controllers\Api\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,9 @@ Route::prefix('auth')->group(function () {
 
 // Protected routes
 Route::middleware('auth:api')->group(function () {
+    // User routes
+    Route::get('users', [UserController::class, 'index']);
+    
     // Thread routes
     Route::get('threads', [ThreadController::class, 'index']);
     Route::post('threads', [ThreadController::class, 'store']);
