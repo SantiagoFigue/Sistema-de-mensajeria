@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 class CreateThreadsTable extends Migration
 {
     /**
-     * Run the migrations.
+     * Ejecutar las migraciones.
      *
      * @return void
      */
@@ -22,7 +22,7 @@ class CreateThreadsTable extends Migration
     }
 
     /**
-     * Reverse the migrations.
+     * Revertir las migraciones.
      *
      * @return void
      */

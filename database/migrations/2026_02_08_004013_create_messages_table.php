@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 class CreateMessagesTable extends Migration
 {
     /**
-     * Run the migrations.
+     * Ejecutar las migraciones.
      *
      * @return void
      */
@@ -23,7 +23,7 @@ class CreateMessagesTable extends Migration
     }
 
     /**
-     * Reverse the migrations.
+     * Revertir las migraciones.
      *
      * @return void
      */

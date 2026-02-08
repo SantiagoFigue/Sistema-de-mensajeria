@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 class AddSoftDeletesToMessagingTables extends Migration
 {
     /**
-     * Run the migrations.
+     * Ejecutar las migraciones.
      *
      * @return void
      */
@@ -27,7 +27,7 @@ class AddSoftDeletesToMessagingTables extends Migration
     }
 
     /**
-     * Reverse the migrations.
+     * Revertir las migraciones.
      *
      * @return void
      */

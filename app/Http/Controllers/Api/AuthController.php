@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Validator;
 class AuthController extends Controller
 {
     /**
-     * Create a new AuthController instance.
+     * Crear una nueva instancia de AuthController.
      */
     public function __construct()
     {
@@ -19,7 +19,7 @@ class AuthController extends Controller
     }
 
     /**
-     * Register a new user.
+     * Registrar un nuevo usuario.
      */
     public function register(Request $request)
     {
@@ -56,7 +56,7 @@ class AuthController extends Controller
     }
 
     /**
-     * Get a JWT via given credentials.
+     * Obtener un JWT mediante credenciales.
      */
     public function login(Request $request)
     {
@@ -92,7 +92,7 @@ class AuthController extends Controller
     }
 
     /**
-     * Get the authenticated User.
+     * Obtener el usuario autenticado.
      */
     public function me()
     {
@@ -103,7 +103,7 @@ class AuthController extends Controller
     }
 
     /**
-     * Log the user out (Invalidate the token).
+     * Cerrar sesión del usuario (invalidar el token).
      */
     public function logout()
     {
@@ -116,7 +116,7 @@ class AuthController extends Controller
     }
 
     /**
-     * Refresh a token.
+     * Refrescar un token.
      */
     public function refresh()
     {

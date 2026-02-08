@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Validator;
 class MessageController extends Controller
 {
     /**
-     * Store a new message in a thread.
+     * Almacenar un nuevo mensaje en un thread.
      */
     public function store(Request $request, $threadId)
     {

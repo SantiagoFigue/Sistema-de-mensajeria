@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\DB;
 class ThreadController extends Controller
 {
     /**
-     * Display a listing of threads for the authenticated user.
+     * Mostrar listado de threads para el usuario autenticado.
      */
     public function index(Request $request)
     {
@@ -35,7 +35,7 @@ class ThreadController extends Controller
     }
 
     /**
-     * Store a newly created thread.
+     * Almacenar un nuevo thread.
      */
     public function store(Request $request)
     {
@@ -95,7 +95,7 @@ class ThreadController extends Controller
     }
 
     /**
-     * Display the specified thread with all messages.
+     * Mostrar el thread especificado con todos sus mensajes.
      */
     public function show($id)
     {
@@ -126,7 +126,7 @@ class ThreadController extends Controller
     }
 
     /**
-     * Remove the specified thread (soft delete).
+     * Eliminar el thread especificado (soft delete).
      */
     public function destroy($id)
     {
