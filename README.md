@@ -104,7 +104,68 @@ proyect/                     # Raíz del proyecto Laravel
 └── README.md                # Este archivo
 ```
 
-## 🔑 Características Principales
+## �️ Base de Datos
+
+### Diagrama de Tablas y Relaciones
+
+```mermaid
+erDiagram
+    users ||--o{ threads : "crea"
+    users ||--o{ messages : "escribe"
+    users ||--o{ thread_participants : "participa"
+    threads ||--o{ messages : "contiene"
+    threads ||--o{ thread_participants : "tiene"
+    
+    users {
+        bigint id PK
+        string name
+        string email UK
+        timestamp email_verified_at
+        string password
+        string remember_token
+        timestamp created_at
+        timestamp updated_at
+    }
+    
+    threads {
+        bigint id PK
+        string subject
+        bigint created_by FK
+        timestamp created_at
+        timestamp updated_at
+        timestamp deleted_at
+    }
+    
+    messages {
+        bigint id PK
+        bigint thread_id FK
+        bigint user_id FK
+        text body
+        timestamp created_at
+        timestamp updated_at
+        timestamp deleted_at
+    }
+    
+    thread_participants {
+        bigint id PK
+        bigint thread_id FK
+        bigint user_id FK
+        timestamp last_read_at
+        timestamp created_at
+        timestamp updated_at
+        timestamp deleted_at
+    }
+```
+
+**Características:**
+- 🗑️ **Soft Deletes**: `threads`, `messages`, `thread_participants`
+- 📖 **Tracking de lectura**: Campo `last_read_at` en participantes
+- 🔑 **Integridad referencial**: Foreign keys con cascada
+- 📧 **Email único**: Constraint en tabla `users`
+
+Ver [documentación completa de la base de datos](docs/database-diagram.md)
+
+## �🔑 Características Principales
 
 ### Backend API
 - ✅ Autenticación JWT

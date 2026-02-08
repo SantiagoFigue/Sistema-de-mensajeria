@@ -62,4 +62,30 @@ class User extends Authenticatable implements JWTSubject
     {
         return [];
     }
+
+    /**
+     * Relación: Usuario ha creado muchos threads
+     */
+    public function createdThreads()
+    {
+        return $this->hasMany(Thread::class, 'created_by');
+    }
+
+    /**
+     * Relación: Usuario participa en muchos threads (many-to-many)
+     */
+    public function threads()
+    {
+        return $this->belongsToMany(Thread::class, 'thread_participants')
+            ->withPivot('last_read_at')
+            ->withTimestamps();
+    }
+
+    /**
+     * Relación: Usuario ha escrito muchos mensajes
+     */
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
 }
